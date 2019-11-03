@@ -1,20 +1,22 @@
-export const GET_PHOTOS_REQUEST = 'GET_PHOTOS_REQUEST'
-export const GET_PHOTOS_SUCCESS = 'GET_PHOTOS_SUCCESS'
-//export const GET_PHOTOS_FAIL = 'GET_PHOTOS_FAIL'
-export function getPhotos(year) {
+export const GET_FILM_REQUEST = 'GET_FILM_REQUEST'
+export const GET_FILM_SUCCESS = 'GET_FILM_SUCCESS'
+export const GET_FILM_FAILURE = 'GET_FILM_FAILURE'
+
+export function getFilms(index) {
   return dispatch => {
-    // экшен с типом REQUEST (запрос начался)
-    // диспатчится сразу, как будто-бы перед реальным запросом
     dispatch({
-      type: GET_PHOTOS_REQUEST,
-      payload: year,
+      type: GET_FILM_REQUEST,
+      payload: '',
     })
 
-    setTimeout(() => {
-      dispatch({
-        type: GET_PHOTOS_SUCCESS,
-        payload: [1, 2, 3, 4, 5],
+    fetch('https://ghibliapi.herokuapp.com/films?limit=3')
+      .then(response => response.json())
+
+      .then(function(json) {
+        dispatch({
+          type: GET_FILM_SUCCESS,
+          payload: json[index],
+        })
       })
-    }, 1000)
   }
 }

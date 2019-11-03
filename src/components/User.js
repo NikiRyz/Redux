@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 
 export class User extends React.Component {
   render() {
-    const { name } = this.props
+    const { names } = this.props
     return (
       <div>
-        <p>Привет, {name}!</p>
+        <p>Привет, {names}!</p>
       </div>
     )
   }
 }
 
 User.propTypes = {
-  name: PropTypes.string.isRequired,
+  names: PropTypes.string.isRequired,
 }

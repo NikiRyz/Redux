@@ -1,5 +1,5 @@
 const initialState = {
-  name: 'Дима',
+  names: 'Дима',
 }
 
 export function userReducer(state = initialState) {
