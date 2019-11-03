@@ -1,8 +1,16 @@
+import { SET_YEAR } from '../actions/PageActions'
+
 const initialState = {
-  year: 2018,
+  year: 2019,
   photos: [],
 }
 
-export function pageReducer(state = initialState) {
-  return state
+export function pageReducer(state = initialState, action) {
+  switch (action.type) {
+    case SET_YEAR: // изменили строку на константу
+      return { ...state, year: action.payload }
+
+    default:
+      return state
+  }
 }
