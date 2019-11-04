@@ -6,7 +6,7 @@ export class User extends React.Component {
     const { names } = this.props
     return (
       <div>
-        <p>Привет, {names}!</p>
+        <h3>Привет, {names}!</h3>
       </div>
     )
   }

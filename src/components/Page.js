@@ -9,8 +9,9 @@ export class Page extends React.Component {
   }
 
   renderTemplate = () => {
-    const { films, isFetching, error } = this.props
-
+    const { isFetching, error } = this.props
+    const title = this.props.films['title']
+    const description = this.props.films['description']
     if (error) {
       return <p className="error">Во время загрузки данных произошла ошибка</p>
     }
@@ -20,15 +21,14 @@ export class Page extends React.Component {
     } else {
       return (
         <div className="film">
-          <h2>{films['title']} </h2>
-          <p> {films['description']} </p>
+          <h2>{title} </h2>
+          <p> {description}</p>
         </div>
       )
     }
   }
 
   render() {
-    const { films } = this.props
     return (
       <div className="ib page">
         <p>
@@ -42,7 +42,6 @@ export class Page extends React.Component {
             2
           </button>{' '}
         </p>
-        <h3> {films} </h3>
 
         {this.renderTemplate()}
       </div>

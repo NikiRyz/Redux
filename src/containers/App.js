@@ -9,13 +9,13 @@ class App extends Component {
     const { user, page, getFilmsAction } = this.props
     return (
       <div className="app">
+        <User names={user.names} />
         <Page
           name={page.name}
           films={page.films}
           isFetching={page.isFetching}
           getFilms={getFilmsAction}
         />
-        <User names={user.names} />
       </div>
     )
   }
